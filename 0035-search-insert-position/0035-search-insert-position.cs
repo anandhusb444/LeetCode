@@ -5,14 +5,14 @@ public class Solution {
         {
             if(nums[i] == target)
             {
-                val = i;
+                return i;
             }
-            else if(nums[i] + 1 == target)
+            else if(nums[i] > target)
             {
-                val = i + 1;
+                return i;
             }
 
         }
-        return val;
+        return nums.Length;
     }
 }
