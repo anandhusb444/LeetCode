@@ -1,14 +1,23 @@
 public class Solution {
     public int[] TwoSum(int[] nums, int target) {
-        for(var i=0;i<nums.Length; i++){
-            for(var j=i+1; j<nums.Length; j++){
-                if(nums[i] + nums[j] == target){
-                    return new int[] {i,j};
+        
+        Dictionary<int,int> map = new Dictionary<int,int>();
 
-                }
+        for(int i=0; i<nums.Length; i++)
+        {
+            int targetVal = target - nums[i];
+            if(map.Contains(targetVal))
+            {
+                return new int[] {targetVal,nums[i]};
+            }
+
+            if(map.Contains(nums[i]) == false)
+            {
+                map[nums[i]] = 1;
             }
         }
-        return new int[0];
+        return null;
+        
         
     }
 }
